@@ -10,5 +10,10 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-RUN apt-get -y install software-properties-common
-RUN apt-get update
+RUN useradd -d /home/beauty -m --uid 1009 beauty
+RUN useradd -d /home/master -m --uid 1017 master
+RUN useradd -d /home/omegauto -m --uid 10019 omegauto
+
+RUN apt-get -y install clamav clamav-daemon
+RUN freshclam
+
