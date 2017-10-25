@@ -14,7 +14,7 @@ RUN useradd -d /home/beauty -m --uid 1009 beauty
 RUN useradd -d /home/master -m --uid 1017 master
 RUN useradd -d /home/omegauto -m --uid 10019 omegauto
 
-RUN apt-get -y install php5-fpm php5-cli php5-mysql php5-gd php5-curl php-apc
+RUN apt-get -y install php5-fpm php5-cli php5-mysql php5-gd php5-curl php5-xcache
 RUN apt-get -y install mysql-client net-tools iputils-ping
 
 COPY etc/ /etc/
