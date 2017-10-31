@@ -30,6 +30,3 @@ RUN echo "@$MAIL_DOMAIN $MAIL_LOGIN@$MAIL_DOMAIN" > /etc/postfix/private/canonic
 RUN echo "[$MAIL_SMTP] $MAIL_LOGIN@$MAIL_DOMAIN:$MAIL_PASSWORD" > /etc/postfix/private/sasl_passwd
 RUN echo "@$MAIL_DOMAIN $MAIL_SMTP" > /etc/postfix/private/sender_relay
 RUN postmap /etc/postfix/private/*
-
-#Prevent Postfix from running with backwards-compatible settings
-RUN postconf compatibility_level=2

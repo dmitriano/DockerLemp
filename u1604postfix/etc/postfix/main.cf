@@ -8,3 +8,4 @@ smtp_sender_dependent_authentication = yes
 sender_dependent_relayhost_maps = hash:/etc/postfix/private/sender_relay
 sender_canonical_maps = hash:/etc/postfix/private/canonical
 
+compatibility_level = 2
