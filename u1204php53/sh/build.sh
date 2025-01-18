@@ -1,2 +1,2 @@
-sudo docker build -t php53s .
+sudo docker build -t u14php53 .
 
