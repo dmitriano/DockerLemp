@@ -22,17 +22,8 @@ RUN apt -y install ejabberd
 
 # python can be used to update a YAML file in future.
 RUN mv /etc/ejabberd/ejabberd.yml /etc/ejabberd/ejabberd.yml.bak
-COPY --chown=ejabberd:ejabberd etc/ /etc/
-
-RUN mkdir /etc/ejabberd/temp
-
 RUN mv /etc/ejabberd/ejabberd.pem /etc/ejabberd/ejabberd.pem.bak
-
-RUN openssl req -days 1825 -nodes -new -x509 -keyout /etc/ejabberd/temp/server.key -out /etc/ejabberd/temp/server.cert \
-    -subj "/C=US/ST=Delaware/L=New Castle/O=RogaAndK/OU=K-department/CN=developernote.com"
-
-RUN cat /etc/ejabberd/temp/server.key > /etc/ejabberd/ejabberd.pem
-RUN cat /etc/ejabberd/temp/server.cert >> /etc/ejabberd/ejabberd.pem
+COPY --chown=ejabberd:ejabberd etc/ /etc/
 
 # HTTP/HTTPS for Web Admin and many more (ejabberd_http)
 EXPOSE 5280
