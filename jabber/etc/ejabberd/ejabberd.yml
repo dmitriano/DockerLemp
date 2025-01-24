@@ -265,6 +265,7 @@ modules:
     name: "SOCKS5 Bytestreams"
     ip: "0.0.0.0"
     port: 7777
+    # hosts: "@HOST@"
     access: all
     shaper: proxy_shaper
   mod_pubsub:
