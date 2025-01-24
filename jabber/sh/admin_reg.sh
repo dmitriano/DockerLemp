@@ -1,2 +1,2 @@
-sudo docker exec jabber ejabberdctl register admin developernote.com quei9daepiQu
+sudo docker exec jabber ejabberdctl register admin developernote.com $1
 
