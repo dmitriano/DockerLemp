@@ -1,1 +1,1 @@
-sudo docker container cp jabber:/etc/ejabberd/ejabberd.yml .
+sudo docker container cp asterisk:/etc/asterisk/ ./original-etc-asterisk

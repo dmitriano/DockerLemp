@@ -1,0 +1,5 @@
+*.pem
+*.pem.bak
+asterisk/original-etc-asterisk/
+
+

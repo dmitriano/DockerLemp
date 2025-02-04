@@ -16,7 +16,8 @@ ENV LC_ALL=en_US.UTF-8
 RUN apt -y install nano
 RUN apt -y install iproute2
 RUN apt -y install telnet
-RUN apt install -y iputils-ping
+RUN apt -y install tcpdump
+RUN apt -y install iputils-ping
 RUN apt -y install build-essential
 RUN apt -y install bison wget openssl libssl-dev
 RUN apt -y install libasound2-dev libc6-dev libxml2-dev
@@ -42,7 +43,9 @@ RUN make install && make config && make samples
 
 # Copy my config
 # COPY --chown=asterisk:asterisk etc/ /etc/
-# COPY etc/ /etc/
+RUN mv /etc/asterisk/extensions.conf /etc/asterisk/extensions.conf.bak
+RUN mv /etc/asterisk/rtp.conf /etc/asterisk/rtp.conf.bak
+COPY etc/ /etc/
 
 # CMD /usr/sbin/asterisk -vvvvvvvvgc
 CMD /usr/sbin/asterisk -vvvvvvvvfp
