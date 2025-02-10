@@ -1,1 +1,1 @@
-sudo docker run -d --restart always --name jabber -v /var/lib/ejabberd:/var/lib/ejabberd -p 5280:5280 -p 5222:5222 -p 5269:5269 -p 7777:7777 u24jabber
+sudo docker run -d --restart always --name asterisk --cpus=0.5 -p 5060:5060/udp -p 5060:5060 -p 5061:5061 -p 10000-10099:10000-10099/udp u24asterisk
