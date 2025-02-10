@@ -45,6 +45,11 @@ USER root
 WORKDIR /home/asterisk/asterisk-22.2.0
 RUN make install && make config && make samples
 
+WORKDIR /etc/asterisk
+RUN mkdir ssl
+RUN openssl req -days 1825 -nodes -new -x509 -keyout ssl/priv_key.pem -out ssl/cert.pem -subj \
+    "/C=US/ST=Delaware/L=New Castle/O=RogaAndK/OU=K-department/CN=developernote.com"
+
 # Copy my config
 # COPY --chown=asterisk:asterisk etc/ /etc/
 RUN mv /etc/asterisk/extensions.conf /etc/asterisk/extensions.conf.bak
