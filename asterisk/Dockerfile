@@ -47,8 +47,9 @@ RUN make install && make config && make samples
 
 # Copy my config
 # COPY --chown=asterisk:asterisk etc/ /etc/
-# RUN mv /etc/asterisk/extensions.conf /etc/asterisk/extensions.conf.bak
-# RUN mv /etc/asterisk/rtp.conf /etc/asterisk/rtp.conf.bak
-# COPY etc/ /etc/
+RUN mv /etc/asterisk/extensions.conf /etc/asterisk/extensions.conf.bak
+RUN mv /etc/asterisk/pjsip.conf /etc/asterisk/pjsip.conf.bak
+RUN mv /etc/asterisk/rtp.conf /etc/asterisk/rtp.conf.bak
+COPY etc/ /etc/
 
 CMD /usr/sbin/asterisk -vvvvvvvvfp
