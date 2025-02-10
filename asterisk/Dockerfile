@@ -59,7 +59,9 @@ COPY etc/ /etc/
 
 ARG NEO_PASSWORD=123parol
 ARG MORPHEUS_PASSWORD=parol321
+ARG RABBIT_PASSWORD=krol456
 RUN sed -i -e "s/neo_parol/$NEO_PASSWORD/g" /etc/asterisk/pjsip.conf
 RUN sed -i -e "s/morpheus_parol/$MORPHEUS_PASSWORD/g" /etc/asterisk/pjsip.conf
+RUN sed -i -e "s/rabbit_parol/$RABBIT_PASSWORD/g" /etc/asterisk/pjsip.conf
 
 CMD /usr/sbin/asterisk -vvvvvvvvfp
