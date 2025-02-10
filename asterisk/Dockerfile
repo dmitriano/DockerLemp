@@ -57,4 +57,9 @@ RUN mv /etc/asterisk/pjsip.conf /etc/asterisk/pjsip.conf.bak
 RUN mv /etc/asterisk/rtp.conf /etc/asterisk/rtp.conf.bak
 COPY etc/ /etc/
 
+ARG NEO_PASSWORD=123parol
+ARG MORPHEUS_PASSWORD=parol321
+RUN sed -i -e "s/neo_parol/$NEO_PASSWORD/g" /etc/asterisk/pjsip.conf
+RUN sed -i -e "s/morpheus_parol/$MORPHEUS_PASSWORD/g" /etc/asterisk/pjsip.conf
+
 CMD /usr/sbin/asterisk -vvvvvvvvfp
